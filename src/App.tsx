@@ -17,7 +17,7 @@ const queryClient = new QueryClient();
 
 // Create thirdweb client
 const client = createThirdwebClient({
-  clientId: "your-client-id" // You'll need to replace this with your actual thirdweb client ID
+  clientId: "8f67f9ec1ed8372843b03898af81f38c"
 });
 
 const App = () => (

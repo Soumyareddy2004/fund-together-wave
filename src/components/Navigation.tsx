@@ -7,7 +7,7 @@ import { createThirdwebClient } from "thirdweb";
 import { sepolia } from "thirdweb/chains";
 
 const client = createThirdwebClient({
-  clientId: "your-client-id" // Replace with your thirdweb client ID
+  clientId: "8f67f9ec1ed8372843b03898af81f38c"
 });
 
 const wallets = [
