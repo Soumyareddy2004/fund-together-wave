@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/fund-together-wave/", // 👈 VERY IMPORTANT for GitHub Pages
+  base: "/fund-together-wave/", // 👈 ADD THIS
   server: {
     host: "::",
     port: 8080,
