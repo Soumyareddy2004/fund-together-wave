@@ -13,7 +13,7 @@ import { formatEther } from "ethers";
 // Contract configuration
 const CONTRACT_ADDRESS = "0x2fe7cE39fb54297D8C485651e74174EFaFAA0ebE";
 const client = createThirdwebClient({
-  clientId: "your-client-id" // Replace with your thirdweb client ID
+  clientId: "8f67f9ec1ed8372843b03898af81f38c" // Replace with your thirdweb client ID
 });
 
 interface Campaign {

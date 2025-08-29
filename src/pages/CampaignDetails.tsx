@@ -26,7 +26,7 @@ import {
 
 const CONTRACT_ADDRESS = "0x2fe7cE39fb54297D8C485651e74174EFaFAA0ebE";
 const client = createThirdwebClient({
-  clientId: "your-client-id" // Replace with your thirdweb client ID
+  clientId: "8f67f9ec1ed8372843b03898af81f38c" // Replace with your thirdweb client ID
 });
 
 interface Campaign {
@@ -70,36 +70,44 @@ const CampaignDetails = () => {
     }
   }, [id]);
 
-  const fetchCampaignDetails = async () => {
-    try {
-      const result = await readContract({
-        contract,
-        method: "function campaigns(uint256) view returns (address owner, string title, string description, uint256 target, uint256 deadline, uint256 amountCollected, string image, address[] donators, uint256[] donations)",
-        params: [BigInt(id!)]
-      });
+ const fetchCampaignDetails = async () => {
+  try {
+    const result = await readContract({
+      contract,
+      method: "function getCampaigns() view returns ((address owner, string title, string description, uint256 target, uint256 deadline, uint256 amountCollected, string image, address[] donators, uint256[] donations)[])",
+      params: []
+    });
 
-      setCampaign({
-        owner: result[0],
-        title: result[1],
-        description: result[2],
-        target: BigInt(result[3]),
-        deadline: BigInt(result[4]),
-        amountCollected: BigInt(result[5]),
-        image: result[6],
-        donators: [...result[7]], // Convert readonly array to mutable
-        donations: result[8].map((d: any) => BigInt(d))
-      });
-    } catch (error) {
-      console.error("Error fetching campaign:", error);
-      toast({
-        title: "Error",
-        description: "Failed to load campaign details.",
-        variant: "destructive"
-      });
-    } finally {
-      setLoading(false);
+    const campaignData = result[Number(id)];
+
+    if (!campaignData) {
+      setCampaign(null);
+      return;
     }
-  };
+
+    setCampaign({
+      owner: campaignData.owner,
+      title: campaignData.title,
+      description: campaignData.description,
+      target: BigInt(campaignData.target),
+      deadline: BigInt(campaignData.deadline),
+      amountCollected: BigInt(campaignData.amountCollected),
+      image: campaignData.image,
+      donators: [...campaignData.donators],
+      donations: campaignData.donations.map((d: any) => BigInt(d))
+    });
+  } catch (error) {
+    console.error("Error fetching campaign:", error);
+    toast({
+      title: "Error",
+      description: "Failed to load campaign details.",
+      variant: "destructive"
+    });
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const fetchDonators = async () => {
     try {

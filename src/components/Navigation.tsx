@@ -38,9 +38,9 @@ const Navigation = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 text-xl font-bold">
-          <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+          {/* <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
             <Heart className="w-5 h-5 text-white" />
-          </div>
+          </div> */}
           <span className="bg-gradient-hero bg-clip-text text-transparent">
             HopeChain
           </span>
