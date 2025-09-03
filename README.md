@@ -3,7 +3,7 @@
 A **decentralized crowdfunding platform**, developed with **Hardhat**, deployed on the **Thirdweb** platform using **SepoliaETH** (Ethereum Sepolia Testnet).
 HopeChain empowers users to create, manage, and contribute to fundraising campaigns with full transparency and trust enabled by blockchain technology.  
 
-🚀 Live Demo: [Fund Together Wave](https://fund-together-wave.lovable.app/)  
+🚀 Live Demo: [Fund Together Wave](https://share.google/tNLzFTHbX2Sk74dsQ)  
 
 ---
 
